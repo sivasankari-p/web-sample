@@ -4,6 +4,9 @@ import './App.css';
 import Routes from "./Routes";
 import { Provider } from "react-redux";
 import store from "./store";
+import {setupInterceptors} from "./interceptors";
+
+setupInterceptors();
 
 const App: React.FC = () => {
   return (
@@ -27,6 +30,6 @@ const App: React.FC = () => {
         </div>
       </Provider>
   );
-}
+};
 
 export default App;
