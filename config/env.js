@@ -30,15 +30,20 @@ const dotenvFiles = [
 // that have already been set.  Variable expansion is supported in .env files.
 // https://github.com/motdotla/dotenv
 // https://github.com/motdotla/dotenv-expand
-dotenvFiles.forEach(dotenvFile => {
+const environmentSettings = dotenvFiles.reduce((environments, dotenvFile) => {
   if (fs.existsSync(dotenvFile)) {
-    require('dotenv-expand')(
+    const something = require('dotenv-expand')(
       require('dotenv').config({
         path: dotenvFile,
       })
     );
+    if (something.error) {
+      return environments;
+    }
+    return { ...environments, ...something.parsed };
   }
-});
+}, {});
+
 
 // We support resolving modules according to `NODE_PATH`.
 // This lets you use absolute paths in imports inside large monorepos:
@@ -77,6 +82,7 @@ function getClientEnvironment(publicUrl) {
         // This should only be used as an escape hatch. Normally you would put
         // images into the `src` and `import` them in code to get their paths.
         PUBLIC_URL: publicUrl,
+        ...environmentSettings,
       }
     );
   // Stringify all values so we can feed into Webpack DefinePlugin
