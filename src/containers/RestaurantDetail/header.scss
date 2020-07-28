@@ -1,0 +1,52 @@
+@import "detail";
+
+.d-flex-card {
+  @extend .d-flex;
+  @extend .direction-row;
+  @extend .align-center;
+  @extend .full-width;
+
+  > img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5%;
+  }
+
+  .header-container {
+    text-align: left;
+
+    .header {
+      font-weight: bolder;
+      font-size: 1.3em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 1.1em;
+      margin-bottom: 12px;
+    }
+  }
+
+  button {
+    margin: 0 8px;
+    padding: 8px 12px;
+    background-color: #eeeff3;
+    color: #333;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 650px) {
+    button {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .d-flex-card {
+    padding: 1em;
+  }
+}

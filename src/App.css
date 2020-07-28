@@ -1,5 +1,17 @@
+body {
+  width: 100vw;
+}
+
 .App {
   text-align: center;
+  padding: 1.5em 3em;
+  width: calc(100% - 6em);
+}
+
+@media (max-width: 650px) {
+  .App {
+    padding: 0;
+  }
 }
 
 .App-logo {

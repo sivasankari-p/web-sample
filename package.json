@@ -2,6 +2,7 @@
   "name": "crs-base",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://sivasankari-p.github.io/web-sample",
   "dependencies": {
     "@babel/core": "7.6.0",
     "@svgr/webpack": "4.3.2",
@@ -40,6 +41,7 @@
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.0",
     "mini-css-extract-plugin": "0.8.0",
+    "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.5.0",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -71,12 +73,15 @@
   },
   "devDependencies": {
     "@types/react-redux": "^7.1.5",
-    "@types/react-router-dom": "^5.1.1"
+    "@types/react-router-dom": "^5.1.1",
+    "gh-pages": "^3.1.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

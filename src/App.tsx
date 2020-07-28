@@ -5,6 +5,8 @@ import Routes from "./Routes";
 import { Provider } from "react-redux";
 import store from "./store";
 import {setupInterceptors} from "./interceptors";
+import RestaurantDetail from "./containers/RestaurantDetail";
+import "./css/font-awesome.min.css";
 
 setupInterceptors();
 
@@ -12,7 +14,7 @@ const App: React.FC = () => {
   return (
       <Provider store={store}>
         <div className="App">
-          <header className="App-header">
+          {/*<header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
               Edit <code>src/App.tsx</code> and save to reload.
@@ -25,8 +27,8 @@ const App: React.FC = () => {
             >
               Learn React
             </a>
-              <Routes />
-          </header>
+          </header>*/}
+          <RestaurantDetail />
         </div>
       </Provider>
   );
