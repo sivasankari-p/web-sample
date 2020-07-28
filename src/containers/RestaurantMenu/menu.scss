@@ -1,0 +1,64 @@
+@import "../../css/color-constants";
+
+.menu-flex {
+  @extend .item-renderer;
+
+  .fa {
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+}
+
+.menu-container {
+  text-align: left;
+
+  .menu-category {
+    > div:first-child {
+      @extend .menu-flex;
+      font-size: 1.3em;
+      font-weight: bolder;
+      padding: 1em 0;
+      color: #333;
+    }
+  }
+
+  .menu-item {
+    @extend .menu-flex;
+    padding: 1.2em 0;
+    border-bottom: 1px solid lightgrey;
+
+    > div:first-child {
+      > div:first-child {
+        font-size: 1.1em;
+        font-weight: bolder;
+        padding-bottom: 0.5em;
+      }
+    }
+
+    > div:last-child {
+      span {
+        color: $gradient-right;
+        font-weight: bolder;
+      }
+      button {
+        margin-left: 1em;
+        background-color: $gradient-right;
+        border-radius: 50%;
+        border-width: 0;
+        width: 40px;
+        height: 40px;
+        color: white;
+        font-size: 2em;
+        line-height: 1;
+        box-shadow: 1px 3px 4px black;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .menu-container {
+    padding: 0 1em;
+  }
+}

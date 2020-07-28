@@ -1,6 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Rating from "./Rating";
 import "./header.scss";
+import {connect} from "react-redux";
+import {STORE_KEYS, WINDOW_REDUCER_KEYS} from "../../reducers";
 
 interface IHeaderProps {
     img: string,
@@ -16,7 +18,8 @@ interface IHeaderProps {
         two: string,
         three: string
     },
-    isUserFavorite: boolean
+    isUserFavorite: boolean,
+    isWindowSmall: boolean
 }
 
 const SPEED_LABEL = "Speed";
@@ -29,22 +32,7 @@ const INFO_THREE = "Info 3";
 
 const RestaurantHeader = (props: IHeaderProps) => {
 
-    const [ isWindowSmall, setWindowSmall ] = useState(window.outerWidth < 650);
-
-    function windowResize() {
-        if (window.outerWidth < 650 && !isWindowSmall) {
-            setWindowSmall(true);
-        } else if (window.outerWidth > 650 && isWindowSmall) {
-            setWindowSmall(false);
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener("resize", windowResize);
-        return () => {
-            window.removeEventListener("resize", windowResize);
-        }
-    });
+    const { isWindowSmall } = props;
 
     return (
         <React.Fragment>
@@ -63,7 +51,7 @@ const RestaurantHeader = (props: IHeaderProps) => {
                         </div>
                     </div>
                     <div className={"d-flex direction-row align-center"}>
-                        <div className={"d-flex direction-row align-center"}>
+                        <div className={"d-flex direction-row align-center rating-container"}>
                             <Rating label={SPEED_LABEL} value={props.rating.speed}/>
                             <Rating label={FLAVOR_LABEL} value={props.rating.flavor}/>
                             <Rating label={OFFER_LABEL} value={props.rating.offer}/>
@@ -109,4 +97,8 @@ const RestaurantHeader = (props: IHeaderProps) => {
     )
 };
 
-export default RestaurantHeader;
+export default connect(
+    (store: any) => ({
+        isWindowSmall: store[STORE_KEYS.WINDOW_STORE][WINDOW_REDUCER_KEYS.IS_WINDOW_SMALL]
+    })
+)(RestaurantHeader);

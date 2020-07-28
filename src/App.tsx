@@ -7,6 +7,7 @@ import store from "./store";
 import {setupInterceptors} from "./interceptors";
 import RestaurantDetail from "./containers/RestaurantDetail";
 import "./css/font-awesome.min.css";
+import AppHeader from "./containers/AppHeader";
 
 setupInterceptors();
 
@@ -28,6 +29,7 @@ const App: React.FC = () => {
               Learn React
             </a>
           </header>*/}
+          <AppHeader/>
           <RestaurantDetail />
         </div>
       </Provider>

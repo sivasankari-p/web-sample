@@ -1,0 +1,96 @@
+@import "../../css/color-constants";
+
+.cart-container {
+  margin: 1em 0;
+  padding-top: 1em;
+  border: 1px solid lightgrey;
+  max-height: 400px;
+
+  > .cart-title {
+    padding: 0 1em 1em 1em;
+    @extend .item-renderer;
+    font-size: 1.2em;
+    font-weight: bolder;
+  }
+
+  > .cart-items {
+    min-height: 100px;
+    overflow-y: auto;
+    padding: 1em;
+
+    > .card-item {
+      @extend .item-renderer;
+      padding: 1em 0;
+      border-bottom: 2px solid lightgrey;
+
+      .item-details {
+        text-align: start;
+
+        > div:first-child {
+          font-weight: bold;
+          padding-bottom: 0.5em;
+        }
+      }
+
+      > .cart-action {
+        > div:first-child {
+          color: $gradient-right;
+          font-weight: bold;
+        }
+
+        .fa {
+          padding-top: 0.5em;
+          color: grey;
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+
+  > .cart-footer {
+    background: linear-gradient(to left top, $gradient-right, $gradient-left);
+    color: white;
+    cursor: pointer;
+    padding: 1em;
+  }
+
+  .counter {
+    padding: 0;
+    width: 60px;
+    margin-right: 1em;
+    background-color: $background-color;
+    border-radius: 5px;
+    border-width: 0;
+
+    > div {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    > div:first-child {
+      line-height: 1;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #333;
+      width: 30px;
+      padding-top: 0.1em;
+    }
+
+    button {
+      margin: 0;
+      width: 30px;
+      background-color: #bbbcc0;
+      color: white;
+      border: none;
+      padding: 2px 8px;
+    }
+
+    button:first-child {
+      border-top-right-radius: 5px;
+    }
+
+    button:last-child {
+      border-bottom-right-radius: 5px;
+    }
+  }
+}

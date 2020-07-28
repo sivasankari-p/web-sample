@@ -1,0 +1,21 @@
+@import "../../css/color-constants";
+
+.app-header {
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+
+  > img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 650px) {
+  .app-header {
+    background: linear-gradient(to left top, $gradient-right, $gradient-left);
+
+    > img {
+      width: 100px;
+    }
+  }
+}

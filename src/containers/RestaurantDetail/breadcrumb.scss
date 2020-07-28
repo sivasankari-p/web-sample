@@ -1,0 +1,24 @@
+@import "../../css/color-constants";
+
+.breadcrumb {
+  background-color: $background-color;
+  padding: 1em 2em;
+  border-radius: 10px;
+  margin: 2em 0;
+  text-align: left;
+  color: #333;
+
+  > .fa {
+    font-size: 1.2em;
+    color: #bbbcc0;
+    margin-right: 2em;
+  }
+
+  > span {
+    margin: 0 1em;
+  }
+
+  > span:last-child {
+    font-weight: bolder;
+  }
+}

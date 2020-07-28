@@ -1,0 +1,10 @@
+$background-color: #eeeff3;
+$gradient-right: #ff2e50;
+$gradient-left: #ff5344;
+
+.item-renderer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

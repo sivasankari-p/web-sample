@@ -1,0 +1,68 @@
+@import "../../css/color-constants";
+
+.tab-container {
+  margin-top: 3em;
+  text-align: left;
+  border-bottom: 1px solid lightgrey;
+
+  > a {
+    display: inline-block;
+    min-width: 100px;
+    padding: 1em;
+    font-weight: bolder;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+  }
+
+  > a.active {
+    color: $gradient-right;
+    border-bottom: 2px solid $gradient-right;
+  }
+}
+
+.tab-content {
+  padding-top: 1em;
+
+  > div {
+    max-height: 400px;
+
+    > .flex-2 {
+      overflow: auto;
+    }
+  }
+}
+
+.floating-cart {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  background-color: #3ec62c;
+  color: white;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  border-width: 0;
+  box-shadow: 1px 3px 4px 0 #a4ec9a;
+
+  .fa {
+    padding: 0.3em;
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 600px) {
+  .tab-container {
+    margin-top: 1em;
+    display: flex;
+    overflow-x: auto;
+    > a {
+      min-width: 60px;
+    }
+  }
+
+  .tab-content {
+    background-color: white;
+  }
+}

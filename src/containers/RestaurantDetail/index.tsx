@@ -1,9 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import RestaurantHeader from "./RestaurantHeader";
 import "./detail.scss";
+import Breadcrumb from "./Breadcrumb";
+import {STORE_KEYS, WINDOW_REDUCER_KEYS} from "../../reducers";
+import TabRouter from "./TabRouter";
 
 interface IRestaurantProps {
-
+    isWindowSmall: boolean,
 }
 
 const DETAIL = {
@@ -23,8 +27,12 @@ const DETAIL = {
 };
 
 const RestaurantDetail = (props: IRestaurantProps) => {
+    const { isWindowSmall } = props;
     return (
         <div>
+            {!isWindowSmall && (
+                <Breadcrumb />
+            )}
             <RestaurantHeader
                 img={DETAIL.img}
                 restaurantName={DETAIL.restaurantName}
@@ -33,8 +41,13 @@ const RestaurantDetail = (props: IRestaurantProps) => {
                 info={DETAIL.info}
                 isUserFavorite={true}
             />
+            <TabRouter/>
         </div>
     )
 };
 
-export default RestaurantDetail;
+export default connect(
+    (store: any) => ({
+        isWindowSmall: store[STORE_KEYS.WINDOW_STORE][WINDOW_REDUCER_KEYS.IS_WINDOW_SMALL]
+    })
+)(RestaurantDetail);
